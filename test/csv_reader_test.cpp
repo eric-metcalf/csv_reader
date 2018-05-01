@@ -14,10 +14,31 @@
 #include <iostream>
 #include "../include/csv_reader.h"
 
+
+int testReadLine(CSVReader csv){
+
+    return 0;
+
+}
+
+
+
+
 int main(){
+    /*
+     * Creating all the different CSV file intializations that we need to create.
+     *
+     */
+
+    std::vector<int> attribute_type;
+    vector<std::string> attribute_name;
+    std::string file_path;
+
     /* this is a fucction that prints out hello world.
      *
      */
+
+
 
     std::cout << "Hello World!!"<<std::endl;
 
@@ -27,6 +48,10 @@ int main(){
 
     std::cout << csv.getFile() << std::endl;
 
+    testReadLine(csv);
 
 
 }
+
+
+
