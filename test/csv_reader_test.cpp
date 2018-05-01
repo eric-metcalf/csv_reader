@@ -1,9 +1,3 @@
-//
-// Created by eric on 4/30/18.
-//
-
-
-
 /*
  *
  * This is the file that is going to test the csv reader
@@ -19,10 +13,7 @@
 
 
 int testReadLine(CSVReader & csv){
-
-
     return 0;
-
 }
 
 
@@ -36,8 +27,10 @@ int main(){
      *
      */
 
-    std::vector<int> attribute_type;
-    vector<std::string> attribute_name;
+    std::vector<int> attribute_type = {1, 2, 3, 4 ,5};
+
+    vector<std::string> attribute_name = {"hello1","hell2","hello3","hello4"};
+
     std::string file_path;
 
  //   getLine("hello,hello,hell,geet,");
