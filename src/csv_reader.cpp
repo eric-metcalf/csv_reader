@@ -56,9 +56,10 @@ std::vector<std::vector<DataPoint>> CSVReader::getNextLine(){
 }
 
 
+/* this is a function that splits the line up*/
 
 vector<DataPoint> split_line(string str) {
-    //std::string str = "1,2,3,4,5,6";
+
     std::vector<DataPoint> vect;
 
     std::stringstream ss(str);
@@ -69,7 +70,7 @@ vector<DataPoint> split_line(string str) {
         DataPoint d;
         int k;
         int min_len;
-        min_len = std::min(i.length(), 16);
+        min_len = std::min( (int) i.length(), 16);
         for (k = 0; k < min_len; k++) {
             d.str_value[k] = i[k];
         }
