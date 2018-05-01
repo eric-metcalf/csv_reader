@@ -19,23 +19,24 @@ CSVReader::CSVReader(std::vector<int> attribute_type,
                      std::string file_path){
 
     //intiializing all the different values
-    this->number_atts = attribute_type;
+    this->number_atts = attribute_type.size();
     this->attribute_name = attribute_name;
     this->file_path = file_path;
+    this->attribute_type = attribute_type;
     lineCount= 0;
 
 
 }
 
 std::string CSVReader::getFile(){
-    return thils->file_path;
+    return this->file_path;
 
 }
 
 int CSVReader::open(){
 
     csv.open(file_path);
-    opened_file = true;
+    openned_file = true;
 
 }
 
@@ -46,7 +47,7 @@ int CSVReader::close(){
 
 }
 
-std::vector<std::vector> CSVReader::getNextLine(){
+std::vector<std::vector<int>> CSVReader::getNextLine(){
     //TODO
     return getLines(1);
 
@@ -54,7 +55,7 @@ std::vector<std::vector> CSVReader::getNextLine(){
 
 
 
-std::vector<std::vector> CSVReader::getLines(int num_lines){
+std::vector<std::vector<int>> CSVReader::getLines(int num_lines){
     //TODO
     vector<vector<int>> a;
     return a;

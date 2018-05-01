@@ -1,5 +1,4 @@
 #
-
 # CMakeLists files in this project can
 # refer to the root source directory of the project as ${HELLO_SOURCE_DIR} and
 # to the root binary directory of the project as ${HELLO_BINARY_DIR}.
@@ -31,7 +30,7 @@ add_executable (helloDemo test/csv_reader_test.cpp src/csv_reader.cpp)
 
 target_include_directories (test_csv_reader PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-project (HELLO)
+project (CSV_Reader)
 
 
 # Add executable called "helloDemo" that is built from the source files

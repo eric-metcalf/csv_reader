@@ -12,7 +12,7 @@
  */
 
 #include <iostream>
-#include "include/csv_reader.h"
+#include "../include/csv_reader.h"
 
 int main(){
     /* this is a fucction that prints out hello world.
@@ -22,7 +22,10 @@ int main(){
     std::cout << "Hello World!!"<<std::endl;
 
     std::string s = "hello";
+
     CSVReader csv(s);
+
+    std::cout << csv.getFile() << std::endl;
 
 
 
