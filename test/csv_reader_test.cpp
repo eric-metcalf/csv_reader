@@ -12,6 +12,9 @@
  */
 
 #include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
 #include "../include/csv_reader.h"
 
 
@@ -20,6 +23,8 @@ int testReadLine(CSVReader csv){
     return 0;
 
 }
+
+
 
 
 
@@ -33,6 +38,8 @@ int main(){
     std::vector<int> attribute_type;
     vector<std::string> attribute_name;
     std::string file_path;
+
+    getLine("hello,hello,hell,geet,");
 
     /* this is a fucction that prints out hello world.
      *
@@ -48,7 +55,7 @@ int main(){
 
     std::cout << csv.getFile() << std::endl;
 
-    testReadLine(csv);
+//    testReadLine(csv);
 
 
 }

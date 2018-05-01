@@ -10,6 +10,14 @@
 #include <vector>
 using namespace std;
 
+union DataPoint{
+
+    int int_value;
+    double double_value;
+    char str_value[16];
+
+};
+
 
 class CSVReader{
 
@@ -33,8 +41,8 @@ public:
 
     CSVReader(string s);
     CSVReader(std::vector<int> attribute_type, vector<std::string> attribute_name, std::string file_path);
-    std::vector<std::vector<int>> getNextLine();
-    std::vector<std::vector<int>> getLines(int num_lines);
+    std::vector<std::vector<DataPoint>> getNextLine();
+    std::vector<std::vector<DataPoint>> getLines(int num_lines);
     int reset();
     int seek(int line);
     int open();
