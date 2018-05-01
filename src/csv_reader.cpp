@@ -1,45 +1,69 @@
-
 //
 // Created by ehm216 on 4/30/18.
 //
 
-#ifndef PROJECT_CSV_READER_H
-#define PROJECT_CSV_READER_H
+using namespace std;
+
+#include "../include/csv_reader.h"
+#include <string>
+
+CSVReader::CSVReader(string s) {
+
+    this->file_path = s;
+
+}
 
 
-#include <fstream>
-#include "csv_reader.h"
+CSVReader::CSVReader(std::vector<int> attribute_type,
+                     vector<std::string> attribute_name,
+                     std::string file_path){
 
-class CSVReader{
-
-private:
-    //Properties of the csv
-    int number_atts;
-    bool openned_file = false;
-    // 1 for int, 0 for float,
-    vector<int> attribute_type;
+    //intiializing all the different values
+    this->number_atts = attribute_type;
+    this->attribute_name = attribute_name;
+    this->file_path = file_path;
+    lineCount= 0;
 
 
-    vector<std::string> attribute_name;
+}
 
-    int lineCount;
+std::string CSVReader::getFile(){
+    return thils->file_path;
 
-    //path to file
-    std::string file_path;
-    ifstream csv;
+}
 
-public:
+int CSVReader::open(){
 
-    CSVReader(std::vector<int> attribute_type, vector<std::string> attribute_name, std::string file_path);
-    std::vector<std::vector> getNextLine();
-    std::vector<std::vector> getLines(int num_lines);
-    int reset();
-    int seek(int line);
-    int open();
-    int close();
-};
+    csv.open(file_path);
+    opened_file = true;
+
+}
+
+int CSVReader::close(){
+
+    csv.close();
+    openned_file = false;
+
+}
+
+std::vector<std::vector> CSVReader::getNextLine(){
+    //TODO
+    return getLines(1);
+
+}
 
 
 
+std::vector<std::vector> CSVReader::getLines(int num_lines){
+    //TODO
+    vector<vector<int>> a;
+    return a;
 
-#endif //PROJECT_CSV_READER_H
+}
+
+int CSVReader::seek(int line) {
+
+    //TODO
+    return 0;
+}
+

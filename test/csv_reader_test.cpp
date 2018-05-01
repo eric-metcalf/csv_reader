@@ -12,11 +12,18 @@
  */
 
 #include <iostream>
+#include "include/csv_reader.h"
 
 int main(){
     /* this is a fucction that prints out hello world.
      *
      */
+
     std::cout << "Hello World!!"<<std::endl;
+
+    std::string s = "hello";
+    CSVReader csv(s);
+
+
 
 }

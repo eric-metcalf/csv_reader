@@ -7,7 +7,8 @@
 
 
 #include <fstream>
-#include "csv_reader.h"
+using namespace std;
+
 
 class CSVReader{
 
@@ -29,6 +30,7 @@ private:
 
 public:
 
+    CSVReader(string s);
     CSVReader(std::vector<int> attribute_type, vector<std::string> attribute_name, std::string file_path);
     std::vector<std::vector> getNextLine();
     std::vector<std::vector> getLines(int num_lines);
@@ -36,6 +38,7 @@ public:
     int seek(int line);
     int open();
     int close();
+    std::string getFile();
 };
 
 
