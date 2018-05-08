@@ -11,10 +11,42 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 
+
+/*
+ *
+ * This is just storing everything as an integer... NEED to improve the
+ * programability of this system.
+ *
+ */
 CSVReader::CSVReader(string s) {
 
     this->file_path = s;
+    this->open();
+    attribute_name = this->getAttributes();
+    for(int i = 0; i < attribute_name.size(); i++){
+        attribute_type.push_back(0);
+    }
 
+}
+
+
+
+std::vector<std::string> CSVReader::getAttributes(){
+
+    std::string val;
+
+    std::getline(csv, val);
+
+    //std::cout << val << std::endl;
+
+    std::vector<DataPoint> atts_dp;
+    atts_dp = split_line(val);
+    std::vector<std::string> atts;
+    for(auto i:atts_dp){
+        atts.push_back(i.str_value);
+        //std::cout << i.str_value << std::endl;
+    }
+    return atts;
 }
 
 
@@ -50,9 +82,9 @@ int CSVReader::close(){
 
 }
 
-std::vector<std::vector<DataPoint>> CSVReader::getNextLine(){
-    return getLines(1);
-
+std::vector<DataPoint> CSVReader::getNextLine(){
+    auto a = getLines(1);
+    return a[0];
 }
 
 
@@ -74,6 +106,7 @@ vector<DataPoint> split_line(string str) {
         for (k = 0; k < min_len; k++) {
             d.str_value[k] = i[k];
         }
+        d.str_value[k] = '\0';
 
         vect.push_back(d);
     }
@@ -81,47 +114,7 @@ vector<DataPoint> split_line(string str) {
     return vect;
 }
 
-/*
-vector<DataPoint> splitLine(string str)
-{
-    //std::string str = "1,2,3,4,5,6";
-    std::vector<int> vect;
 
-    std::stringstream ss(str);
-
-    int i;
-
-    while (ss >> i)
-    {
-        vect.push_back(i);
-
-        if (ss.peek() == ',')
-            ss.ignore();
-    }
-
-    for (i=0; i< vect.size(); i++)
-        std::cout << vect.at(i)<<std::endl;
-
-
-
-}
-
-        if (ss.peek() == ',')
-            ss.ignore();
-    }
-    int j = 0;
-    for (j=0; j < vect.size(); j++)
-
-        std::cout << vect.at(j)<<std::endl;
-
-    return vect;
-
-    //std::cout << "THIS IS THE END" << std::endl;
-
-
-}
-
-*/
 std::vector<std::vector<DataPoint>> CSVReader::getLines(int num_lines){
 
     if(!openned_file){
@@ -130,16 +123,17 @@ std::vector<std::vector<DataPoint>> CSVReader::getLines(int num_lines){
     }
     //Assuming the max size of a line is 256 bytes
     //TODO Converting a char * to a string
-    char v[256];
+
+    std::string v;
+    vector<std::vector<DataPoint>> data;
 
     for( int i = 0; i < num_lines; i++){
-        csv.getline(v, 256);
-        split_line(v);
+        getline(csv, v);
+        auto a = split_line(v);
+        data.push_back(a);
     }
-    vector<vector<DataPoint>> a;
 
-
-    return a;
+    return data;
 
 }
 

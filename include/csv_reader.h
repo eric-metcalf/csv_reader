@@ -41,14 +41,20 @@ public:
 
     CSVReader(string s);
     CSVReader(std::vector<int> attribute_type, vector<std::string> attribute_name, std::string file_path);
-    std::vector<std::vector<DataPoint>> getNextLine();
+
+    std::vector<DataPoint> getNextLine();
     std::vector<std::vector<DataPoint>> getLines(int num_lines);
+    std::vector<std::string> getAttributes();
+
     int reset();
     int seek(int line);
     int open();
     int close();
     std::string getFile();
 };
+
+
+vector<DataPoint> split_line(string str);
 
 
 

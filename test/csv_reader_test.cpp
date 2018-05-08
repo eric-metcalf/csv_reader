@@ -13,9 +13,22 @@
 
 
 int testReadLine(CSVReader & csv){
-    return 0;
+    auto a = csv.getNextLine();
 }
 
+
+int testReadAtts(CSVReader & csv){
+
+    auto a = csv.getAttributes();
+
+    for(auto b:a){
+        std::cout << b << std::endl;
+
+    }
+
+    return 0;
+
+}
 
 
 
@@ -32,8 +45,8 @@ int main(){
     vector<std::string> attribute_name = {"hello1","hell2","hello3","hello4"};
 
     std::string file_path;
-
- //   getLine("hello,hello,hell,geet,");
+    file_path = "../test_data/gps.csv";
+    //   getLine("hello,hello,hell,geet,");￼
 
     /* this is a fucction that prints out hello world.
      *
@@ -45,13 +58,15 @@ int main(){
 
     std::string s = "hello";
 
-    CSVReader csv(s);
+    CSVReader csv(file_path);
+
+    csv.open();
 
     std::cout << csv.getFile() << std::endl;
 
     int i = 0;
     i = testReadLine(csv);
-
+    i = testReadAtts(csv);
 
 }
 
