@@ -14,6 +14,12 @@
 
 int testReadLine(CSVReader & csv){
     auto a = csv.getNextLine();
+
+    for(auto b:a){
+        std::cout << b.str_value << std::endl;
+
+    }
+
 }
 
 
@@ -60,12 +66,14 @@ int main(){
 
     CSVReader csv(file_path);
 
-    csv.open();
+    //csv.open();
 
     std::cout << csv.getFile() << std::endl;
 
     int i = 0;
-    i = testReadLine(csv);
+    //i = testReadLine(csv);
+    //i = testReadLine(csv);
+    //i = testReadLine(csv);
     i = testReadAtts(csv);
 
 }

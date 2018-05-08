@@ -126,13 +126,14 @@ std::vector<std::vector<DataPoint>> CSVReader::getLines(int num_lines){
 
     std::string v;
     vector<std::vector<DataPoint>> data;
-
+    cout<< "1 "<<endl;
     for( int i = 0; i < num_lines; i++){
         getline(csv, v);
         auto a = split_line(v);
         data.push_back(a);
     }
 
+    cout<< "2 "<<endl;
     return data;
 
 }
