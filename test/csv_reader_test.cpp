@@ -22,6 +22,22 @@ int testReadLine(CSVReader & csv){
 
 }
 
+int testReadLines(CSVReader & csv, int value){
+    auto a = csv.getLines(value);
+    int count = 0;
+    for(auto b:a){
+        std::cout<<endl<<"line :"<< count<<std::endl;
+        for(auto c:b){
+
+            std::cout << c.str_value << std::endl;
+
+        }
+        count++;
+
+    }
+
+}
+
 
 int testReadAtts(CSVReader & csv){
 
@@ -73,8 +89,13 @@ int main(){
     int i = 0;
     //i = testReadLine(csv);
     //i = testReadLine(csv);
-    //i = testReadLine(csv);
+    i = testReadLine(csv);
+
+    cout << "\n" << std::endl;
+
     i = testReadAtts(csv);
+
+    i = testReadLines(csv, 10);
 
 }
 

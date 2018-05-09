@@ -14,7 +14,7 @@ union DataPoint{
 
     int int_value;
     double double_value;
-    char str_value[16];
+    char str_value[255];
 
 };
 
@@ -54,7 +54,7 @@ public:
 };
 
 
-vector<DataPoint> split_line(string str);
+vector<DataPoint> split_line(const string & str);
 
 
 

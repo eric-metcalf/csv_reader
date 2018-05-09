@@ -9,6 +9,9 @@ cmake_minimum_required (VERSION 2.8.11)
 # cause another cmake executable to run. The same process will walk through
 # the project's entire directory structure.
 
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
+
 
 include_directories(include)
 include_directories(src)
